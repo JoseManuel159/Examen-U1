@@ -26,3 +26,8 @@ spring:
           uri: lb://jmq-curso-service
           predicates:
             - Path=/curso/**
+
+        - id: jmq-matricula-service
+          uri: lb://jmq-matricula-service
+          predicates:
+            - Path=/matricula/**
