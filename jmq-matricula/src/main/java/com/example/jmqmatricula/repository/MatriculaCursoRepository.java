@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface MatriculaCursoRepository extends JpaRepository<MatriculaCurso, Integer> {
 
-    List<MatriculaCurso> findByMatriculaId(Long matriculaId);
+    boolean existsByCursoIdAndMatricula_IdEstudiante(Long cursoId, Long idEstudiante);
 
-    boolean existsByMatriculaIdAndCursoId(Long matriculaId, Long cursoId);
 }

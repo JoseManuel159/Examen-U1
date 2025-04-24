@@ -1,6 +1,7 @@
 package com.example.jmqmatricula.entity;
 
 
+import com.example.jmqmatricula.dto.Estudiante;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -15,6 +16,9 @@ public class Matricula {
 
     private Long idEstudiante;
 
+    @Transient
+    private Estudiante estudiante;
+
     private Integer ciclo;
 
     private LocalDate fechaMatricula;
@@ -27,9 +31,10 @@ public class Matricula {
     public Matricula() {
     }
 
-    public Matricula(Long id, Long idEstudiante, Integer ciclo, LocalDate fechaMatricula, List<MatriculaCurso> cursos) {
+    public Matricula(Long id, Long idEstudiante, Estudiante estudiante, Integer ciclo, LocalDate fechaMatricula, List<MatriculaCurso> cursos) {
         this.id = id;
         this.idEstudiante = idEstudiante;
+        this.estudiante = estudiante;
         this.ciclo = ciclo;
         this.fechaMatricula = fechaMatricula;
         this.cursos = cursos;
@@ -73,5 +78,13 @@ public class Matricula {
 
     public void setCursos(List<MatriculaCurso> cursos) {
         this.cursos = cursos;
+    }
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 }

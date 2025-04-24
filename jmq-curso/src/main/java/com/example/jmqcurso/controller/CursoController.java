@@ -54,4 +54,11 @@ public class CursoController {
         cursoService.eliminarCurso(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}/capacidad")
+    public ResponseEntity<Curso> actualizarCapacidad(@PathVariable Long id, @RequestBody Integer nuevaCapacidad) {
+        Curso curso = cursoService.actualizarCapacidad(id, nuevaCapacidad);
+        return ResponseEntity.ok(curso);
+    }
+
 }

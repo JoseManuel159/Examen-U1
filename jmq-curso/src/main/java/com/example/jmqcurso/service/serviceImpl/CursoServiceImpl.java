@@ -32,7 +32,6 @@ public class CursoServiceImpl implements CursoService {
     public Curso actualizarCurso(Long id, Curso curso) {
         Curso existente = cursoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Curso no encontrado con ID: " + id));
-
         existente.setCodigo(curso.getCodigo());
         existente.setNombre(curso.getNombre());
         existente.setHorario(curso.getHorario());
@@ -61,4 +60,14 @@ public class CursoServiceImpl implements CursoService {
     public Optional<Curso> obtenerPorCodigo(String codigo) {
         return cursoRepository.findByCodigo(codigo);
     }
+
+    @Override
+    public Curso actualizarCapacidad(Long id, Integer nuevaCapacidad) {
+        Curso existente = cursoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Curso no encontrado con ID: " + id));
+        existente.setCapacidad(nuevaCapacidad);
+        return cursoRepository.save(existente);
+    }
+
+
 }

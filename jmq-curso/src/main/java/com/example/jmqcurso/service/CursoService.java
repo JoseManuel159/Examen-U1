@@ -19,4 +19,7 @@ public interface CursoService {
     Optional<Curso> obtenerCursoPorId(Long id);
 
     Optional<Curso> obtenerPorCodigo(String codigo);
+
+    Curso actualizarCapacidad(Long id, Integer nuevaCapacidad);
+
 }
